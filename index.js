@@ -4,8 +4,20 @@ for (n = 0; n < buttonValue; n++) {
   document.querySelectorAll(".drum")[n].addEventListener("click", function() {
 
     var buttonInnerHTML = this.innerHTML;
+    makeSound(buttonInnerHTML);
+  });
 
-    switch (buttonInnerHTML) {
+}
+
+  document.addEventListener("keydown", function(event) {
+
+    makeSound(event.key);
+
+  });
+
+  function makeSound(key) {
+
+    switch (key) {
       case "w":
         var tom1 = new Audio("sounds/tom-1.mp3");
         tom1.play();
@@ -46,14 +58,4 @@ for (n = 0; n < buttonValue; n++) {
         console.log(buttonInnerHTML);
 
     }
-
-    // document.addEventListener("keydown", keyStroke);
-    // function keyStroke (){
-    //   switch (buttonInnerHTML);}
-
-
-
-  });
-
-
-}
+  }
